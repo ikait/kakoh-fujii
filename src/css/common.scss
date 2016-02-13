@@ -1,6 +1,241 @@
+@import "reset";
+@import "utils";
+
+
+$letter-spacing: 4px;
+$default-text-color: #333;
+$main-width: 1040px;
+
+body {
+    font-family: "游明朝体", "Yu Mincho", YuMincho, serif;
+    font-size: 0.9em;
+}
+
 #global-nav,
 #global-footer,
-#hero {
-  width: 800px;
-  margin: 0 auto;
+#work-nav,
+#works-list,
+#main {
+    width: $main-width;
+    margin: 0 auto;
+    color: $default-text-color;
+    line-height: 1.6;
+}
+
+$gn-title-width: 200px;
+$gn-title-height: 100px;
+#gn-title {
+    width: $gn-title-width;
+    height: $gn-title-height;
+    float: left;
+    top: 0; left: 0; bottom: 0; right: 0;
+
+    & > a {
+        margin: 0;
+        padding: 0;
+        color: transparent;
+        display: block;
+        background: url("../img/title.jpg");
+        background-size: contain;
+    }
+}
+
+#gn-list {
+    text-align: right;
+}
+
+.gn-item {
+    $padding-side: 40px;
+    position: relative;
+    right: $padding-side * -1;
+    display: inline-block;
+
+    & > a {
+        display: block;
+        margin-left: 10px;
+        padding: 0 $padding-side;
+        letter-spacing: $letter-spacing;
+        line-height: $gn-title-height;
+        color: $default-text-color;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+#work-nav {
+}
+
+$wn-list-width: 700px;
+#wn-list {
+    width: $wn-list-width;
+    margin-left: auto;
+    text-align: right;
+}
+
+.wn-item {
+    display: inline-block;
+
+    & > a {
+        color: $default-text-color;
+        text-decoration: none;
+        padding: 0 20px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+#main {
+    padding: 40px 0;
+}
+
+$wkd-padding-top-bottom: 70px;
+.work-detail {
+    position: relative;
+    padding: $wkd-padding-top-bottom 0;
+    border-top: 1px solid #ddd;
+
+    &:nth-of-type(1) {
+        margin-top: $wkd-padding-top-bottom * -1;
+        border-top: none;
+    }
+}
+
+.wkd-date {
+    position: absolute;
+    left: 30px;
+    top: $wkd-padding-top-bottom;
+
+    & > time {
+        padding: 10px 15px;
+        border: 2px solid #333;
+    }
+}
+
+$wkd-replica-width: 400px;
+.wkd-replica {
+    margin: 0 auto;
+    width: $wkd-replica-width;
+    height: $wkd-replica-width;
+    text-align: center;
+    display: block;
+}
+
+$wkd-description-right: 100px;  // should be $side-nav-width/2
+.wkd-description {
+    position: absolute;
+    right: 0;
+    bottom: $wkd-padding-top-bottom;
+    width: ($main-width - $wkd-replica-width) / 2 - $wkd-description-right;
+    line-height: 1.6;
+
+    @at-root {
+        #top .wkd-description {
+            right: $wkd-description-right;
+        }
+    }
+
+    & > h1 {
+        font-size: 1.6em;
+    }
+
+    & > p {
+        margin-top: 0.2em;
+    }
+}
+
+
+$works-list-column: 3;
+$works-list-margin: 20px;
+#works-list {
+}
+
+#wl-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.wl-item > a {
+    $size: $main-width / $works-list-column - $works-list-margin;
+    width: $size;
+    color: $default-text-color;
+    text-decoration: none;
+    display: block;
+
+    & > .wl-item-img {
+        $img-margin: 50px;
+        width: $size - $img-margin * 2;
+        height: $size - $img-margin * 2;
+        margin: $img-margin;
+    }
+    & > .wl-item-title {
+        font-size: 1.5em;
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+#side-nav-primary {
+
+}
+
+#side-nav-secondary {
+
+}
+
+$side-nav-width: $wkd-description-right * 2;
+.side-nav {
+    width: $side-nav-width;
+    float: left;
+}
+
+.sn-genre {
+    padding: 30px 0;
+}
+
+.sn-list {
+    margin-left: 30px;
+}
+
+.sn-list-title {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.sn-list-item {
+    & > a {
+        display: block;
+        color: $default-text-color;
+        text-decoration: none;
+        margin-bottom: 5px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.work-detail.right {
+    width: $main-width - $side-nav-width;
+    float: right;
+}
+
+#global-footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#gf-copyright {
+    font-size: 0.5em;
+    letter-spacing: $letter-spacing;
+    text-align: right;
 }
