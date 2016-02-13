@@ -43,6 +43,7 @@ gulp.task("prettify", () => gulp.src(`${path.html}**/*.html`)
 
 gulp.task("scss", () => gulp.src(`${path.scss}**/*.scss`)
     .pipe(sourcemaps.init())
+    .pipe(plumber())
     .pipe(sass({
         outputStyle: "expanded"}))
     .on("error", error => console.log(error.message))
