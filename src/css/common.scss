@@ -13,7 +13,7 @@ body {
 
 #global-nav,
 #global-footer,
-#work-nav,
+#works-nav,
 #works-list,
 #main {
     width: $main-width;
@@ -65,7 +65,9 @@ $gn-title-height: 100px;
     }
 }
 
-#work-nav {
+#works-nav {
+    position: relative;
+    z-index: 1;
 }
 
 $wn-list-width: 700px;
